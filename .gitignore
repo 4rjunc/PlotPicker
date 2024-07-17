@@ -9,6 +9,9 @@ media
 # Backup files # 
 *.bak 
 
+#dataset
+datasets/
+
 # If you are using PyCharm # 
 # User-specific stuff
 .idea/**/workspace.xml
