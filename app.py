@@ -5,15 +5,15 @@ import os
 import numpy as np
 
 # Load the k-NN model
-knn_model_path = "path_to_your_project/models/knn_model.pkl"
+knn_model_path = "./knn_model.pkl"
 model_knn = joblib.load(knn_model_path)
 
 # Load the pivot table (as a sparse matrix)
-pivot_table_path = "path_to_your_project/models/pivot_table.npz"
+pivot_table_path = "./pivot_table.npz"
 pt_matrix = load_npz(pivot_table_path)
 
 # Load the pivot table index
-pivot_table_index_path = "path_to_your_project/models/pivot_table_index.pkl"
+pivot_table_index_path = "./pivot_table_index.pkl"
 pivot_table_index = joblib.load(pivot_table_index_path)
 
 
