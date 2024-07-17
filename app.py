@@ -38,17 +38,17 @@ def find_similar_books(book):
     return similar_books[:10] if similar_books else []
 
 
-st.title("Book Recommendation System")
+st.title("📚Book Recommendation System")
 
-book_name = st.text_input("Enter a book name:")
-if st.button("Recommend"):
+book_name = st.text_input("👀 Enter a book name:")
+if st.button("Recommend 🚀"):
     if book_name:
         recommendations = recommend_knn(book_name)
         if recommendations:
-            st.write(f'Recommendations for "{book_name}":')
+            st.write(f'⭐️ Recommendations for "{book_name}":')
             for i, rec in enumerate(recommendations, 1):
                 st.write(f"{i}. {rec}")
         else:
-            st.write("No recommendations found. Try a different book name.")
+            st.write("No recommendations found 😔 . Try a different book name.")
     else:
-        st.write("Please enter a book name.")
+        st.write("Please enter a book name 🤩")
