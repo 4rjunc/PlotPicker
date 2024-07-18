@@ -4,7 +4,7 @@ from scipy.sparse import load_npz
 import os
 import numpy as np
 
-# Load the k-NN model
+# Load the k-NN model!
 knn_model_path = "./knn_model.pkl"
 model_knn = joblib.load(knn_model_path)
 
