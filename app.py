@@ -38,17 +38,89 @@ def find_similar_books(book):
     return similar_books[:10] if similar_books else []
 
 
-st.title("📚Book Recommendation System")
+# st.title("📚Book Recommendation System")
+#
+# book_name = st.text_input("👀 Enter a book name:")
+# if st.button("Recommend 🚀"):
+#    if book_name:
+#        recommendations = recommend_knn(book_name)
+#        if recommendations:
+#            st.write(f'⭐️ Recommendations for "{book_name}":')
+#            for i, rec in enumerate(recommendations, 1):
+#                st.write(f"{i}. {rec}")
+#        else:
+#            st.write("No recommendations found 😔 . Try a different book name.")
+#    else:
+#        st.write("Please enter a book name 🤩")
+#
 
-book_name = st.text_input("👀 Enter a book name:")
-if st.button("Recommend 🚀"):
-    if book_name:
-        recommendations = recommend_knn(book_name)
-        if recommendations:
-            st.write(f'⭐️ Recommendations for "{book_name}":')
-            for i, rec in enumerate(recommendations, 1):
-                st.write(f"{i}. {rec}")
+# Set page configuration
+st.set_page_config(
+    page_title="Book Recommendation System",
+    page_icon="📚",
+    layout="centered",
+)
+
+# Custom CSS
+st.markdown(
+    """
+<style>
+    body {
+        background-color: #f0f4f8;
+        color: #1e1e1e;
+    }
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 20px;
+        transition: all 0.3s ease;
+    }
+    .stButton>button:hover {
+        background-color: #45a049;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .stTextInput>div>div>input {
+        border-radius: 20px;
+        border: 2px solid #4CAF50;
+    }
+    h1 {
+        color: #2c3e50;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        padding-bottom: 20px;
+    }
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+# App title
+st.title("📚 Book Recommendation System")
+
+# Create two columns
+col1, col2 = st.columns([3, 1])
+
+with col1:
+    book_name = st.text_input(
+        "👀 Enter a book name:", placeholder="e.g., To Kill a Mockingbird"
+    )
+
+with col2:
+    if st.button("Recommend 🚀"):
+        if book_name:
+            recommendations = recommend_knn(book_name)
+            if recommendations:
+                st.success(f'⭐️ Recommendations for "{book_name}":')
+                for i, rec in enumerate(recommendations, 1):
+                    st.write(f"{i}. {rec}")
+            else:
+                st.error("No recommendations found 😔. Try a different book name.")
         else:
-            st.write("No recommendations found 😔 . Try a different book name.")
-    else:
-        st.write("Please enter a book name 🤩")
+            st.warning("Please enter a book name 🤩")
+
+# Add a footer
+st.markdown("---")
+st.markdown("Made with ❤️  Arjun")
