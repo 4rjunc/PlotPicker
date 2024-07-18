@@ -54,6 +54,7 @@ def find_similar_books(book):
 #        st.write("Please enter a book name 🤩")
 #
 
+
 # Set page configuration
 st.set_page_config(
     page_title="Book Recommendation System",
@@ -66,6 +67,8 @@ st.markdown(
     """
 <style>
     body {
+        display: flex;
+        flex-direction: column;
         background-color: #f0f4f8;
         color: #1e1e1e;
     }
@@ -77,6 +80,8 @@ st.markdown(
         border: none;
         padding: 10px 20px;
         transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
     }
     .stButton>button:hover {
         background-color: #45a049;
@@ -87,10 +92,17 @@ st.markdown(
         border: 2px solid #4CAF50;
     }
     h1 {
-        color: #2c3e50;
+        color: #FFFFFF;
+        text-wrap: nowrap;
         text-align: center;
         font-family: 'Arial', sans-serif;
         padding-bottom: 20px;
+    }
+    .recommendation-container {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 </style>
 """,
@@ -100,22 +112,25 @@ st.markdown(
 # App title
 st.title("📚 Book Recommendation System")
 
-# Create two columns
-col1, col2 = st.columns([3, 1])
+# Create a single column layout
+col1 = st.container()
 
 with col1:
     book_name = st.text_input(
         "👀 Enter a book name:", placeholder="e.g., To Kill a Mockingbird"
     )
 
-with col2:
     if st.button("Recommend 🚀"):
         if book_name:
             recommendations = recommend_knn(book_name)
             if recommendations:
+                st.markdown(
+                    '<div class="recommendation-container">', unsafe_allow_html=True
+                )
                 st.success(f'⭐️ Recommendations for "{book_name}":')
                 for i, rec in enumerate(recommendations, 1):
                     st.write(f"{i}. {rec}")
+                st.markdown("</div>", unsafe_allow_html=True)
             else:
                 st.error("No recommendations found 😔. Try a different book name.")
         else:
