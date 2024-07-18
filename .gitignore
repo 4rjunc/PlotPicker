@@ -10,7 +10,7 @@ media
 *.bak 
 
 #dataset
-datasets/
+#datasets/
 
 # If you are using PyCharm # 
 # User-specific stuff
