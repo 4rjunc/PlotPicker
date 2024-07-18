@@ -62,10 +62,22 @@ st.set_page_config(
     layout="centered",
 )
 
+# Font
+st.markdown(
+    """
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
+    """,
+    unsafe_allow_html=True,
+)
 # Custom CSS
 st.markdown(
     """
 <style>
+    *{
+  font-family: "Outfit", sans-serif !important;
+    }
     body {
         display: flex;
         flex-direction: column;
@@ -103,6 +115,9 @@ st.markdown(
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .st-emotion-cache-qgowjl>p{
+    font-size:20px;
     }
 </style>
 """,
