@@ -216,7 +216,7 @@ if st.button("Recommend 🚀"):
         else:
             st.error("No recommendations found. Please try a different book name.")
     else:
-        st.warning("Please enter a book name 🤩")  # Add a footer
+        st.warning("Please enter a book name 🤩")
 
 st.markdown("---")
 st.markdown("Made with ❤️  Arjun")
