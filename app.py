@@ -219,4 +219,4 @@ if st.button("Recommend 🚀"):
         st.warning("Please enter a book name 🤩")
 
 st.markdown("---")
-st.markdown("Made with ❤️  Arjun")
+st.markdown("Made with ❤️")
